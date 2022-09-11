@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <script src="prism.js"></script>
+    <title>Cheat sheet</title>
+</head>
+<body>
+    <nav>
+        <div class="content center">  
+            Cheat sheet
+        </div>
+    </nav>  
+
+    
+    <div class="container">
+        <h3>Usefull resources</h3>
+        <a href="https://hyperpolyglot.org/">Hyperpolyglot</a>
+    </div>
+    
+    <div class="container">
+        <h2>Java</h2>
+    </div>
+    
+    <div class="container">
+        <ol>
+            <li><b> Top level statments </b>
+                <pre class="language-java"><code>
+                    // each file contains the following elements in order:
+
+                    // (1) optional package directive
+                    // (2) zero or more import directives
+                    // (3) one public class definition and zero or more private class definitions
+                </code></pre>
+            </li>
+            <li><b> Uninitialized local variable </b>
+                <pre class="language-java"><code>
+                    // compiler error
+                </code></pre>
+            </li>
+            <li><b> Global variable </b>
+                <pre class="language-java"><code>
+                    // globals must be declared inside a class:
+                    public class Foo {
+                      public static int bar;
+                    }
+                </code></pre>
+            </li>
+            <li><b> Write-once variable </b>
+                <pre class="language-java"><code>
+                    final int i = 7;
+                </code></pre>
+            </li>
+              <li><b> Allocate heap </b>
+                <pre class="language-java"><code>
+                    // Primitive types are stack allocated.
+                    // Use a wrapper class to store on the
+                    // heap:
+                    Integer i = new Integer(0)
+                </code></pre>
+            </li>
+            <li><b> Integer type </b>
+                <pre class="language-java"><code>
+                    byte n1;  // 1 byte
+                    short n2; // 2 bytes
+                    int n3;   // 4 bytes
+                    long n4;  // 8 bytes
+                </code></pre>
+            </li>
+            <li><b> Power </b>
+                <pre class="language-java"><code>
+                    Math.pow(2.0, 32.0);
+                </code></pre>
+            </li>
+            <li><b> Sqrt </b>
+                <pre class="language-java"><code>
+                    Math.sqrt(2)
+                </code></pre>
+            </li>
+            <li><b> Random number </b>
+                <pre class="language-java"><code>
+                    import java.util.Random;
+
+                    Random rnd = new Random();
+
+                    int i = rnd.nextInt(100);
+                    double x = rnd.nextDouble();
+                </code></pre>
+            </li>
+            <li><b> Are strings mutable? </b>
+                <pre class="language-java"><code>
+                    String objects are immutable.
+
+                    StringBuffer has append(), delete(), deleteCharAt(), insert(), replace(), setCharAt().
+                </code></pre>
+            </li>
+            <li><b> Compare strings </b>
+                <pre class="language-java"><code>
+                    "hello".compareTo("world")
+                </code></pre>
+            </li>
+            <li><b> Number to string </b>
+                <pre class="language-java"><code>
+                    Integer.toString(14)
+                    Long.toString(14)
+                    Double.toString(14.7)
+                </code></pre>
+            </li>
+            <li><b> String to number </b>
+                <pre class="language-java"><code>
+                    Integer.parseInt("14")
+                    Long.parseLong("14")
+                    Float.parseFloat("14.7")
+                    Double.parseDouble("14.7")
+                </code></pre>
+            </li>
+            <li><b> Current date and time </b>
+                <pre class="language-java"><code>
+                    import java.util.Date;
+
+                    long millis = System.currentTimeMillis();
+                    Date dt = new Date(millis);
+                </code></pre>
+            </li>
+            <li><b> Format date </b>
+                <pre class="language-java"><code>
+                    String s = "yyyy-MM-dd HH:mm:ss";
+                    DateFormat fmt = new SimpleDateFormat(s);
+                    String s2 = fmt.format(dt);
+                </code></pre>
+            </li>
+            <li><b> Resizable array declare </b>
+                <pre class="language-java"><code>
+                    import java.util.Vector;
+                    Vector<String> vec = new Vector<String>();
+                </code></pre>
+            </li>
+            <li><b> Dictionarie contructor </b>
+                <pre class="language-java"><code>
+                    import java.util.TreeMap;
+                    TreeMap<String, Integer> m = new TreeMap<String, Integer>();
+                </code></pre>
+            </li>
+            <li><b> Dictionarie iterate </b>
+                <pre class="language-java"><code>
+                    for ( java.util.Map.Entry<String, Integer> e : m.entrySet() ) {
+                        // use e.getKey() or e.getValue()
+                      }
+                </code></pre>
+            </li>
+            <li><b> Finally clause </b>
+                <pre class="language-java"><code>
+                    try {
+                        // risky code
+                      } finally {
+                        // perform cleanup
+                      }
+                </code></pre>
+            </li>
+            <li><b> Read from file </b>
+                <pre class="language-java"><code>
+                    import java.io.BufferedReader;
+                    import java.io.FileReader;
+                    
+                    BufferedReader in = new BufferedReader(new FileReader("/etc/passwd"));
+                    String line;
+                    
+                    while ((line = in.readLine()) != null) {
+                      // process line
+                    }
+                </code></pre>
+            </li>
+            <li><b> Write to file </b>
+                <pre class="language-java"><code>
+                    import java.io.BufferedWriter;
+                    import java.io.FileWriter;
+                    
+                    BufferedWriter fout = new BufferedWriter(new FileWriter("/tmp/test2"));
+                    int i;
+                    
+                    for (i = 0; i < 10; i++) {
+                      fout.write(String.format("%d", i));
+                      fout.newLine();
+                    }
+                    fout.close();
+                </code></pre>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>
